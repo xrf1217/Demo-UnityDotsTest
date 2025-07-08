@@ -16,8 +16,8 @@ namespace Ecs.Systems
         [BurstCompile]
         public void OnUpdate( ref SystemState state)
         {
-            state.Enabled = false;
-            return;
+            //state.Enabled = false;
+            //return;
             // foreach (var rotateSpeed in SystemAPI.Query<RefRW<LocalTransform>,RefRO<RotateSpeed>>().WithNone<Player>())
             // {
             //     

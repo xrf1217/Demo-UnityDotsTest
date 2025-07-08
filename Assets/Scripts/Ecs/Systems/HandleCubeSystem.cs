@@ -11,6 +11,8 @@ namespace Ecs.Systems
        
         public void OnUpdate(ref SystemState state)
         {
+            state.Enabled = false;
+            return;
             foreach ( RotatingMovingCubeAspect rotatingMovingCubeAspect 
                      in SystemAPI.Query<RotatingMovingCubeAspect>())
             {

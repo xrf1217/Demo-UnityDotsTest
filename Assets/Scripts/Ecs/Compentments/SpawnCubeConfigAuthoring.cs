@@ -8,7 +8,6 @@ namespace Ecs.Compentments
         public GameObject cubePrefab;
         public int amountToSpawn;
         
-        
         public class Baker:Baker<SpawnCubeConfigAuthoring>
         {
             public override void Bake(SpawnCubeConfigAuthoring authoring)

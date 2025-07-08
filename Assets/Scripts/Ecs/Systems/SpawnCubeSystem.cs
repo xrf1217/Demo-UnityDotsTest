@@ -1,4 +1,5 @@
-﻿using Ecs.Compentments;
+﻿using System;
+using Ecs.Compentments;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -6,8 +7,6 @@ using Random = UnityEngine.Random;
 
 namespace Ecs.Systems
 {
-    
-    
     public partial class SpawnCubeSystem: SystemBase
     {
         protected override void OnCreate()
@@ -22,14 +21,15 @@ namespace Ecs.Systems
             SpawnCubeConfig spawnCubeConfig = SystemAPI.GetSingleton<SpawnCubeConfig>();
             for (int i = 0; i < spawnCubeConfig.amountToSpawn; i++)
             {
+                int2 rowAndCol = new int2(i / 100, i % 100);
+                float3 position = new float3(10f * rowAndCol.x, 10, 10f * rowAndCol.y)-new float3(50,0,50);
                 Entity entity = EntityManager.Instantiate(spawnCubeConfig.cubeEntity);
                 SystemAPI.SetComponent(entity,new LocalTransform()
                 {
-                    Position = new float3(Random.Range(-20,20),5,Random.Range(-20,20)),
+                    Position =position,
                     Rotation = quaternion.identity,
-                    Scale = 1f
+                    Scale = 5f
                 });
-                
             }
         }
     }

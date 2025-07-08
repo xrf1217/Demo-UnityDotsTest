@@ -5,7 +5,7 @@ namespace Ecs.Compentments
 {
     public struct Player : IComponentData
     {
-      
+        
     }
     public class PlayerAuthoring : MonoBehaviour
     {
